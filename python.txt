@@ -1,0 +1,231 @@
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(j,end="")
+    print()
+for i in range (1,6):
+    for j in range(6,i,-1):
+        print (i,end="")
+    print()
+for i in range(1,6):
+    for j in range(5,i,-1):
+        print(" ",end=" ")
+    for k in range (0,i):
+        print("*",end=" ")
+    print()
+for i in range(1,6):
+    for j in range (i,0,-1):
+        print(j,end=" ")
+    print()
+for i in range(1,6):
+    for j in range(1,i+1):
+        print ("*",end=" ")
+    print()
+for i in range(5,0,-1):
+    for j in range (i,0,-1):
+        print("*",end=" ")
+    print()
+for i in range(1,9):
+    for j in range(1,i+1):
+        print(j*i,end=" ")
+    print()
+a="sachin kumar thainua"
+print (a.count("a"))
+print(a.upper())
+print(a.lower())
+print(a.index("kum"))
+print(a.capitalize())
+print(a.title())
+print(a.find("kum"))
+name="abhishek"
+age=22
+c="my name is {} and age is {}"
+print(c)
+print (c.format(name,age))
+sn="sachin"
+print(sn.center(11,"$"))
+sk="hello"
+
+print(sk.isalpha())
+z="Harry Potter"
+print(z.endswith("T",6,9))
+print(z.startswith("Pot",6,9))
+print(z.isspace())
+print(z.swapcase())
+z="%%%%Harryy Potter  ****   "
+print(z)
+print(z.strip(" ,%"))
+a="#00FD33#3#GIF#DJE#@"
+print(a.split("#"))
+a="Harry Potter"
+x=a.rjust(30,"~")
+print(x," is my fav movie")
+a="gt is the new king"
+print(a.replace("gt","musx"))
+a="harry potter and the goblet of fire"
+print(a[:6])
+print(a[-6:])
+print(a[::2])
+print(a[:])
+print(a[::-1])
+num=int(input("enter the number:"))
+if num<=1:
+    print("not prime")
+else :
+    for i in range(2,num):
+        if num%i==0:
+            print("not prime")
+            break
+    else:
+          print("prime")
+num=int(input("enter a number here:"))
+temp=num
+
+while(num>0):
+    rev = 0
+    dig=num%10
+    rev=rev*10+dig
+    num//=10
+if(temp==rev):
+    print("palindrome")
+a=input("enter a string here")
+b=sorted(a)
+print(b)
+c="f.r.i.e.n.d.s"
+print(c.replace(".",""))
+name="rahul"
+a="the name is ",name
+print(a)
+a="she sells seashells on the sea shore"
+b=a.count("se")
+print("the number of the times :",a.count("se"))
+nv=input("enter the entire string here:")
+rev=nv[::-1]
+if rev==nv:
+    print ("is a pladd")
+ft=["ironman","thor","captain america","hulk","ragnar"]
+print(ft[::-1 ])
+for i in ft:
+    print(i)
+i=0
+while i<len(ft):
+    print(ft[i])
+    i+=1
+ft.insert(1,"drax")
+print(ft)
+ft.pop(1)
+print(ft)
+ft.sort()
+print((ft))
+l1=[20,30,40,50,60,70,80]
+print(l1[0])
+l3=[]
+l3=[i for i in l1 if i>35]
+print(l3 )
+print(ft[:3:-1])
+#import json
+#student_data={"name":"david","age":13,"marks":87}
+#print(type(student_data))
+#data=json.dumps(student_data,)
+#pretty printing,indentation,seperators
+
+#data=json.dumps(student_data,indent=4,sort_keys=False)
+#f=open("demo.json","w")
+#f.write(data)
+
+#print("the data has been added to the file")
+student_data={"student":
+                {"grade":
+                {"name":"David","marks":87 }
+                }
+                }
+print(type(student_data))
+#data=json.loads(student_data)
+
+print(student_data["student"]["grade"]["name"])
+employee_data={"name":"john","age":24,"gender":"male"}
+print(employee_data["gender"])
+for x in employee_data:
+    print(employee_data[x])
+for x in employee_data.values():
+ print(x)
+for x,y in employee_data.items():
+    print(x," - ",y)
+x=employee_data.get("name")
+print(x)
+a=employee_data.items()
+print(a)
+b=employee_data.keys()
+print(b)
+c=employee_data.values()
+print((c))
+v=employee_data.copy()
+print(type(v))
+print(employee_data,v)
+print(employee_data["age"])
+employees={1:{"name":"john","age":23,"gender":"male"},
+           2:{"name":"lisa","age":21,"gender":"female"},
+           3:{"name":"peter","age":24,"gender":"male"}
+           }
+print(employees[3]["name"])
+a={"a":12,"b":8,"c":4}
+
+a=sorted(a.keys())
+print(a)
+#b=sorted(a.values()) will show error
+a={}
+for i in range(1,5):
+    a[i]=i+2
+print(a)
+product=1
+for i in a:
+    product*=a[i]
+print(product)
+ft={"ironman","thor","captain america","hulk","ragnar"}
+print(type(ft))
+ft.add("hero")
+print(ft)
+#pop-random , remove , discard
+#copy
+ft.pop()
+print(ft)
+ft.remove("thor")
+ft.discard("hulk")
+#isdisjoint,issubset,issuperset,update,clear
+ft.clear()
+print(ft)
+a={1,2,3,4}
+b={5,6,7}
+c={2,3,8}
+print(a.union(c))
+c.difference(a)
+print(c)
+a=[1,2,3,7]
+b=[2,5,1,7]
+c=[1,7,8,5]
+print(set(a)&set(b)&set(c))
+def add(x,y):
+    print(x+y)
+add(4,5)
+fac=1
+def fact1(x):
+    if x==1:
+        return 1
+
+    return x*fact1(x-1)
+
+print(fact1(4))
+a=lambda b:b*5
+print(a(5))
+print(type(a))
+print(type(b))
+x=lambda a,b,c:(a-b)*c
+print(x(1,3,4))
+def add(numbers):
+    if len(numbers)==1:
+        return numbers[0]
+    return numbers[0]+add(numbers[1:])
+l1=[1,3,2,12,14,10]
+print(add(l1))
+#import datetime,radom,math
+#x=datetime.datetime.now()
+#print(x)

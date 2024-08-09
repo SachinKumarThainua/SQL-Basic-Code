@@ -1,0 +1,124 @@
+select * from demo1.customer;
+SELECT Index1 fROM customer;
+select Phone1,city,Index1 from customer where not city = 'bethside' and index1 between 4 and 90 ;
+select * from customer where country in ('macao','india');
+select index1,city from customer where index1 between '7' and '50';
+select Phone1,city,Index1 from customer where  city = 'bethside' and index1 not between 3 and 90 ;
+select index1,city from customer where city='bethside';
+select concat(country,'-',city) as concatfunction from customer where index1 between 600 and 1000;
+select country,city from customer where city like '%ba%';
+select index1,country from customer order by index1 desc limit 5,100;
+select concat_ws('!',firstname,lastname,company) as details from customer;
+select length(phone1) as length from customer;
+select upper(website) as website from customer;
+select lower(city) as city from customer;
+select left(city,4) as left1 from customer;
+select right(website,7) as website from customer;
+select mid(firstname,3,3) as  company from customer;
+select * from world.city;
+select sum(population) from world.city;
+select count(distinct CountryCode) as country from world.city;
+select max(population) from world.city;
+select min(population) from world.city;
+select avg(population) from world.city;
+select truncate(population,1) from world.city;
+select * from world.country;
+select truncate(SurfaceArea,1) from world.country;
+select ceil(LifeExpectancy) from world.country;
+select floor(LifeExpectancy) from world.country;
+select continent,region,count( region) from world.country group by Region,Continent having count(*)>3 order by count(*) asc limit 1,5;
+select continent,count( *) from world.country group by Continent;
+select * from sakila.customer;
+select last_update,count(*) from sakila.customer group by last_update;
+select date(last_update) from sakila.customer;
+select time(last_update) from sakila.customer;
+select datediff(last_update,create_date) from sakila.customer;
+select dayname(subscriptiondate) from demo1.customer;
+select month(subscriptiondate) from demo1.customer;
+select monthname(subscriptiondate) from demo1.customer;
+/* hour, year, minute */
+select index1,Email,
+case
+when index1<=400 then 'low id no'
+when index1>600 then 'high id no'
+else 'avg'
+end as indextime
+
+ from demo1.customer;
+ select * from world.country;
+ 
+   select country.name1,city.name2 from country
+   inner join city 
+   on city.countrycode=country.countrycode;
+   select country.name1,city.name2,country.region,city.id from country
+   left join city 
+   on city.countrycode=country.countrycode
+   ;
+      select country.name1,city.name2,country.region,city.id,city.district from country
+   right join city 
+   on city.countrycode=country.countrycode
+   ;
+    select country.name1,city.name2,country.region,city.id,city.district from country
+   cross join city 
+   on city.countrycode=country.countrycode
+   ;
+   use demo1;
+   create view countingof as
+   select country,city from customer where city like '%ba%';
+   create view raoult as
+select * from customer where country like '%in%';
+use demo1;
+delimiter &&
+create procedure maxtdata()
+begin
+select * from demo1.customer;
+end &&
+Delimiter ;
+call demo1.maxtdata();
+delimiter &&
+create procedure getlimit(in var int)
+begin
+select * from demo1.customer limit var;
+end &&
+Delimiter ;
+
+call demo1.getlimit(3);
+use world;
+delimiter &&
+create procedure getin(in var int)
+begin
+select * from world.city ;
+end &&
+Delimiter ;
+call world.getin(3);
+delimiter &&
+create procedure getout(out var int)
+begin
+select max(population)into var from world.city  ;
+end &&
+Delimiter ;
+call world.getout(@M);
+select @M
+delimiter &&
+create procedure getouts(inout var int)
+begin
+select * from city where population between 80000 and var ;
+end &&
+Delimiter ;
+set @m=100000;
+call world.getouts(@m);
+select @m;
+use world;
+delimiter &&
+create procedure getoutp(inout var int)
+begin
+select * from city where population = var ;
+end &&
+Delimiter ;
+set @n=100000;
+call world.getoutp(@n);
+select @n;
+
+
+
+
